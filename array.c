@@ -3,8 +3,6 @@
 #include <time.h>
 #include <unistd.h>
 
-// #define len 100000000
-
 // Function to delete an element from the middle of an array
 void deleteFromMiddle(int *arr, int *size, int indexToDelete) {
   if (indexToDelete < 0 || indexToDelete >= *size) {

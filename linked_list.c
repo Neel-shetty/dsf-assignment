@@ -3,8 +3,6 @@
 #include <time.h>
 #include <unistd.h>
 
-// #define len 100000000
-
 // Define the structure of a linked list node
 struct Node {
   int data;
@@ -78,7 +76,6 @@ int main() {
     int len = len_arr[i];
     struct Node *head = NULL;
     struct Node *current;
-
     // Create a linked list with values from 1 to len
     for (int i = 1; i <= len; i++) {
       struct Node *newNode = createNode(i);
@@ -90,19 +87,9 @@ int main() {
         current = newNode;
       }
     }
-
-    // Display the linked list before deletion
-    // printf("Linked list before deletion:\n");
-    // Measure execution time before deletion
     clock_t start = clock(); // printList(head);
-
-    // Delete a node from the middle
     deleteFromMiddle(&head, len);
-    // Measure execution time after deletion
     clock_t end = clock();
-    // Display the linked list after deletion
-    // printf("Linked list after deletion from the middle:\n");
-    // printList(head);
     double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Size of List: %d \n", len);
     printf("Execution time: %f seconds\n\n", cpu_time_used);
