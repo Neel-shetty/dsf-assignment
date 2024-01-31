@@ -26,12 +26,11 @@ int main() {
                    1000000, 10000000, 100000000, 1000000000};
   for (int i = 0; i < 9; i++) {
     int len = len_arr[i];
-    // int *arr = malloc(len * sizeof(int));
-    int arr[len];
-    // if (arr == NULL) {
-    //   printf("Memory allocation failed\n");
-    //   return 1;
-    // }
+    int *arr = malloc(len * sizeof(int));
+    if (arr == NULL) {
+      printf("Memory allocation failed\n");
+      return 1;
+    }
     int size = len;
     for (int i = 0; i < size; i++) {
       arr[i] = i + 1;
@@ -43,7 +42,7 @@ int main() {
     double cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Size of List: %d \n", len);
     printf("Execution time: %f seconds\n\n", cpu_time_used);
-    // free(arr); // Don't forget to free the allocated memory
+    free(arr); // Don't forget to free the allocated memory
     sleep(2);
   }
   return 0;
